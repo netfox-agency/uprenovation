@@ -384,3 +384,15 @@ body.is-locked { overflow: hidden; }
   .btn-ghost-call:hover { background: #E8E3DA; }
   .foot { padding-bottom: 100px; }
 }
+
+/* Métiers : chaque carte mène à sa page ou au devis */
+.grid .card { display: block; color: inherit; text-decoration: none; border-radius: 18px; }
+.grid .card img { transition: transform .5s var(--ease), filter .3s; }
+.grid .card .more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px; font-size: var(--t6); font-weight: 600; color: var(--blue); }
+.grid .card .more::after { content: "→"; margin-left: 6px; transition: transform .25s var(--ease); }
+@media (hover: hover) {
+  .grid .card:hover img { transform: scale(1.02); filter: brightness(1.04); }
+  .grid .card:hover .more::after { transform: translateX(3px); }
+}
+.grid .card:active img { transform: scale(.99); }
+.grid .card:focus-visible { outline: 2px solid var(--blue); outline-offset: 6px; }
