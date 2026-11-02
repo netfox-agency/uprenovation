@@ -1,0 +1,111 @@
+/* Up Rénovation 33 · pages de campagne
+   Chargé après ../styles.css (celui de l'accueil) : mêmes tokens, même nav, mêmes boutons,
+   même cadre photo, même bloc devis ardoise. Ici, seulement ce qui est propre aux pages. */
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lp .reveal.in { opacity: 1; transform: none; }
+
+/* Nav : le numéro en clair à côté du bouton */
+.nav-tel { font-size: var(--t7); font-weight: 600; color: var(--ink); padding: 12px 6px; font-variant-numeric: tabular-nums; }
+.nav.on-photo .nav-tel { color: #fff; }
+@media (max-width: 734px) { .nav-tel { display: none; } }
+
+/* Ouverture : cadre photo à gauche du formulaire */
+.lp-hero { position: relative; }
+.lp-frame { min-height: 700px; }
+.lp-frame > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; z-index: -2; animation: settle 2.4s var(--ease) both; }
+.lp-frame::after { height: 90%; background: linear-gradient(transparent, rgba(18, 12, 8, .6) 45%, rgba(18, 12, 8, .88)); }
+.lp-frame::before { height: 100%; background: linear-gradient(90deg, rgba(18, 12, 8, .5), transparent 62%), linear-gradient(rgba(10, 14, 20, .45), transparent 22%); }
+.lp-hero .hero-in { right: calc(400px + clamp(24px, 4vw, 56px) * 2); }
+.lp-hero h1 { font-size: clamp(2.3rem, 1.3rem + 3.2vw, 4.2rem); line-height: 1.02; letter-spacing: -.035em; max-width: 16ch; text-wrap: balance; }
+.lp-hero .hero-txt p { max-width: 46ch; }
+.lp-kicker { margin: 0 0 14px !important; font-size: var(--t7) !important; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .9) !important; }
+.lp-trust { margin-top: 26px; grid-template-columns: 1fr 1fr; gap: 8px 24px; color: rgba(255, 255, 255, .86); }
+
+.lp-card { position: absolute; z-index: 2; right: calc(10px + clamp(24px, 4vw, 56px)); bottom: clamp(24px, 4vw, 56px); width: 400px; background: var(--white); color: var(--ink); border-radius: 22px; padding: 28px; box-shadow: 0 20px 60px rgba(0, 0, 0, .25); }
+.lp-card-t { font-size: var(--t3); font-weight: 600; letter-spacing: -.01em; }
+.lp-card-s { margin: 6px 0 18px; color: var(--ink-2); font-size: var(--t6); }
+
+/* Champs (classes attendues par lp/script.js : .field, .invalid, .err, .form-state.show) */
+.form form { display: grid; gap: 12px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: var(--t7); color: var(--mute); }
+.field label small { color: var(--mute); opacity: .8; }
+.field input, .field textarea { width: 100%; min-height: 46px; padding: 11px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--white); outline: none; font: inherit; font-size: var(--t5); color: var(--ink); transition: border-color .2s, box-shadow .2s; }
+.field textarea { resize: vertical; min-height: 90px; }
+.field input::placeholder, .field textarea::placeholder { color: #B3ADA5; }
+.field input:focus, .field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(181, 72, 31, .18); }
+.field .err { display: none; font-size: var(--t7); color: #D93025; }
+.field.invalid input { border-color: #D93025; }
+.field.invalid .err { display: block; }
+.form .btn { margin-top: 4px; min-height: 52px; }
+.form-foot { font-size: var(--t7); color: var(--mute); text-align: center; }
+.form-state { display: none; text-align: center; padding: 24px 8px 8px; }
+.form-state.show { display: block; }
+.form-state b { display: block; font-size: var(--t3); font-weight: 600; }
+.form-state p { margin: 6px 0 4px; color: var(--ink-2); }
+.form-state .done-ic { margin-bottom: 14px; }
+.spinner { display: inline-block; width: 16px; height: 16px; margin-right: 8px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .4); border-top-color: #fff; animation: tourne .8s linear infinite; vertical-align: -3px; }
+@keyframes tourne { to { transform: rotate(360deg); } }
+
+/* Sections */
+.lp-sec { padding-block: var(--space); }
+.lp-sec-top0 { padding-top: 0; }
+.lp-risques { grid-template-columns: repeat(4, 1fr); }
+.lp-risques dt { font-size: var(--t4); line-height: 1.25; letter-spacing: -.02em; }
+.lp-cta-row { margin-top: clamp(40px, 5vw, 56px); }
+
+.lp-texte { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px 72px; align-items: start; }
+.lp-prose h2 { font-size: var(--t3); letter-spacing: -.02em; margin: 40px 0 14px; }
+.lp-prose h2:first-child { margin-top: 0; }
+.lp-prose p { color: var(--ink-2); margin-bottom: 14px; max-width: 62ch; }
+.lp-urgent { position: sticky; top: 80px; background: var(--gray); border-radius: 22px; padding: 28px; }
+.lp-urgent b { display: block; font-size: var(--t4); font-weight: 600; letter-spacing: -.02em; line-height: 1.25; }
+.lp-urgent p { margin-top: 10px; color: var(--ink-2); }
+
+.lp-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 24px; }
+.lp-steps li { padding-top: 20px; border-top: 1px solid var(--line); }
+.lp-steps span { display: block; font-size: var(--t7); font-weight: 600; color: var(--blue); font-variant-numeric: tabular-nums; }
+.lp-steps b { display: block; margin-top: 10px; font-size: var(--t4); font-weight: 600; letter-spacing: -.02em; }
+.lp-steps p { margin-top: 8px; color: var(--ink-2); }
+
+.lp-prix { margin: 0 10px; }
+.lp-prix-in { display: grid; grid-template-columns: .9fr 1.1fr; gap: 32px 72px; align-items: start; }
+.lp-prix-in p { color: var(--ink-2); margin-bottom: 16px; font-size: var(--t5); }
+.lp-prix-in p b { color: var(--ink); font-weight: 600; }
+.lp-prix-in .btn { margin-top: 8px; }
+
+.lp-zone-p { margin-top: 16px; color: var(--ink-2); font-size: var(--t5); }
+.lp-zone-p strong { color: var(--ink); font-weight: 600; }
+.lp-faq-t { font-size: var(--t7); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); margin-bottom: 8px; }
+
+/* Bloc devis complet : même bloc ardoise que l'accueil */
+.lp .ask-card .form-state b { color: var(--ink); }
+.callbar.show { transform: none; }
+
+/* ============ Tablette ============ */
+@media (max-width: 1068px) {
+  .lp-risques, .lp-steps { grid-template-columns: 1fr 1fr; }
+  .lp-texte, .lp-prix-in { grid-template-columns: 1fr; }
+  .lp-urgent { position: static; }
+  .lp-hero .hero-in { right: calc(380px + 48px); }
+  .lp-card { width: 380px; }
+}
+
+/* ============ Mobile : la photo et le titre, puis le formulaire dessous ============ */
+@media (max-width: 860px) {
+  .lp-frame { height: calc(100svh - 12px); min-height: 640px; max-height: none; }
+  .lp-frame::before { background: linear-gradient(rgba(10, 14, 20, .45), transparent 22%); }
+  .lp-hero .hero-in { right: 0; padding: 24px 20px 26px; }
+  .lp-trust { grid-template-columns: 1fr; }
+  .lp-card { position: static; width: auto; margin: 10px 0 0; box-shadow: none; border: 1px solid var(--line); }
+}
+@media (max-width: 734px) {
+  .lp-frame { min-height: 600px; }
+  .lp-kicker { display: none; }
+  .lp-hero .hero-cta { flex-direction: column; align-items: stretch; gap: 4px; }
+  .lp-hero .hero-cta .btn { width: 100%; }
+  .lp-card { padding: 22px 18px; border-radius: 20px; }
+  .lp-risques, .lp-steps { grid-template-columns: 1fr; }
+  .lp-prix { margin: 0 6px; }
+}
