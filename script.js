@@ -117,7 +117,10 @@ form.addEventListener('submit', async e => {
   const [hx, hy] = P(HOME.lat, HOME.lon);
   const pxKm = s / 111;
   // Sur téléphone la carte est réduite de moitié : zone de toucher élargie pour rester au doigt
-  const hitR = matchMedia('(max-width: 734px)').matches ? 36 : 22;
+  const petit = matchMedia('(max-width: 734px)').matches;
+  const hitR = petit ? 36 : 22;
+  // Les noms y sont deux fois plus gros (CSS) : leurs décalages doublent aussi, sinon ils mordent sur les points
+  const k2 = petit ? 2 : 1;
   [10, 20].forEach(d => {
     el('circle', { cx: hx, cy: hy, r: d * pxKm, class: 'ring' });
     el('text', { x: hx + 4, y: hy - d * pxKm - 5, 'font-size': 11, 'font-family': 'system-ui' }).textContent = `${d} km à vol d’oiseau`;
@@ -128,7 +131,7 @@ form.addEventListener('submit', async e => {
     const g = el('g', { class: 'town' + (t.major ? ' is-major' : ''), tabindex: 0, role: 'button', 'aria-label': `${t.n}, environ ${t.km} kilomètres` });
     el('circle', { cx: x, cy: y, r: hitR, class: 'hit' }, g);
     el('circle', { cx: x, cy: y, r: t.major ? 7 : 5.5, fill: color[t.z], class: 'dot', stroke: '#fff', 'stroke-width': 2 }, g);
-    el('text', { x: x + (t.dx ?? 12), y: y + (t.dy ?? 5), 'text-anchor': t.a || 'start' }, g).textContent = t.n;
+    el('text', { x: x + (t.dx ?? 12) * k2, y: y + (t.dy ?? 5) * k2, 'text-anchor': t.a || 'start' }, g).textContent = t.n;
     const show = () => {
       $$('.town.is-on', svg).forEach(n => n.classList.remove('is-on'));
       g.classList.add('is-on');
@@ -144,7 +147,7 @@ form.addEventListener('submit', async e => {
   const h = el('g', { class: 'home' });
   el('circle', { cx: hx, cy: hy, r: 9, class: 'pulse' }, h);
   el('circle', { cx: hx, cy: hy, r: 6, fill: '#B5481F', stroke: '#fff', 'stroke-width': 2.5 }, h);
-  el('text', { x: hx + 12, y: hy - 6 }, h).textContent = 'Loubens';
+  el('text', { x: hx + 12 * k2, y: hy - 6 * k2 }, h).textContent = 'Loubens';
   svg.addEventListener('pointerleave', () => { tip.hidden = true; $$('.town.is-on', svg).forEach(n => n.classList.remove('is-on')); });
 })();
 
