@@ -61,6 +61,34 @@ $$('[data-go]').forEach(a => a.addEventListener('click', () => {
   setTimeout(() => $('input[name="tel"]').focus({ preventScroll: true }), 700);
 }));
 
+/* ---------- Métiers : l'aperçu prend la photo de la ligne survolée ou atteinte au clavier ---------- */
+(function apercu() {
+  const img = $('.tprev img');
+  if (!img) return;
+  const lignes = $$('.tlist a');
+  let voulu = img.getAttribute('src'), minuteur;
+  const montrer = a => {
+    lignes.forEach(l => l.classList.toggle('is-on', l === a));
+    const src = a.dataset.img;
+    if (!src || src === voulu) return;
+    voulu = src;
+    clearTimeout(minuteur);
+    img.classList.add('is-out');
+    minuteur = setTimeout(() => {
+      const pret = () => img.classList.remove('is-out');
+      img.onload = pret; img.src = src;
+      if (img.complete) pret();
+    }, 180);
+  };
+  lignes.forEach(a => {
+    a.addEventListener('pointerenter', () => montrer(a));
+    a.addEventListener('focus', () => montrer(a));
+    // Précharge les six photos pour que l'aperçu change sans attendre
+    if (a.dataset.img) new Image().src = a.dataset.img;
+  });
+  montrer(lignes[0]);
+})();
+
 /* ---------- Demande : seul le téléphone est obligatoire ----------
    Envoi par Web3Forms (FormData, sans preflight CORS), clé dans config.js.
    Les photos ne passent pas par Web3Forms (offre gratuite) : on propose le SMS. */
