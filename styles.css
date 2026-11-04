@@ -111,7 +111,7 @@ p { margin: 0; }
 .head p { margin-top: 16px; font-size: var(--t4); line-height: 1.38; letter-spacing: .011em; color: var(--ink-2); }
 
 /* Métiers */
-.trades { padding-block: var(--space); }
+.trades { padding-block: var(--space) clamp(56px, 6vw, 88px); }
 .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 24px; }
 .grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; }
 .grid h3 { margin-top: 18px; font-size: var(--t4); font-weight: 600; letter-spacing: -.02em; }
@@ -140,7 +140,7 @@ p { margin: 0; }
 .quote-client footer { margin-top: 12px; font-size: var(--t6); color: var(--mute); }
 
 /* Devis */
-.quote { padding-block: var(--space); background: var(--navy); color: #fff; margin: 0 10px; border-radius: 28px; }
+.quote { padding-block: clamp(72px, 8vw, 112px); background: var(--navy); color: #fff; margin: 0 10px; border-radius: 28px; }
 .quote .head p { color: rgba(255, 255, 255, .72); }
 .quote .path { color: var(--ink); }
 .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
@@ -235,7 +235,7 @@ p { margin: 0; }
 .facts dd { margin-top: 10px; color: var(--ink-2); max-width: 26ch; }
 
 /* Zone */
-.zone { padding-block: var(--space); background: var(--gray); margin: 10px 10px 0; border-radius: 28px; }
+.zone { padding-block: clamp(80px, 9vw, 128px); background: var(--gray); margin: 10px 10px 0; border-radius: 28px; }
 .zone-in { display: grid; grid-template-columns: .85fr 1.15fr; gap: 48px; align-items: center; }
 .zone-in > div > p { margin-top: 16px; font-size: var(--t4); color: var(--ink-2); }
 .legend { list-style: none; margin: 32px 0 0; padding: 0; }
@@ -444,8 +444,14 @@ body { background: var(--paper); }
 }
 .tlist a:active .tname { color: var(--blue-hover); }
 
+/* Bande de photos de chantier, pleine largeur */
+.shots { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 10px; padding: 0 10px; margin-bottom: clamp(72px, 9vw, 120px); }
+.shots figure { margin: 0; position: relative; }
+.shots img { width: 100%; height: clamp(300px, 34vw, 480px); object-fit: cover; border-radius: 22px; }
+.shots figcaption { position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; border-radius: 980px; background: rgba(255, 255, 255, .88); -webkit-backdrop-filter: saturate(180%) blur(12px); backdrop-filter: saturate(180%) blur(12px); font-size: var(--t7); font-weight: 600; color: var(--ink); }
+
 /* Une rangée de tuiles canal vues de bout : la signature du métier, en filet */
-.tuiles { height: 22px; margin: 0 10px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cpath d='M0 22V12a11 11 0 0 1 22 0v10M22 22V12a11 11 0 0 1 22 0v10' fill='none' stroke='%23B5481F' stroke-width='1.6'/%3E%3Cpath d='M11 22v-4a11 11 0 0 1 22 0v4' fill='none' stroke='%23B5481F' stroke-opacity='.35' stroke-width='1.2'/%3E%3C/svg%3E") repeat-x left bottom / 44px 22px; opacity: .9; }
+.tuiles { height: 16px; margin: 0 38px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='16' viewBox='0 0 36 16'%3E%3Cpath d='M-9 16a9 9 0 0 1 18 0zM27 16a9 9 0 0 1 18 0z' fill='%238E3A19'/%3E%3Cpath d='M8 16a10 10 0 0 1 20 0z' fill='%23B5481F'/%3E%3Cpath d='M11 13.5a7.5 7.5 0 0 1 6-5' fill='none' stroke='%23fff' stroke-opacity='.28' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left bottom / 36px 16px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); }
 
 /* À propos : le texte et l'avis à gauche, la fiche de l'artisan (en forme de maison) à droite */
 .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px 96px; align-items: center; }
@@ -513,7 +519,11 @@ body { background: var(--paper); }
   .tlist img { width: 56px; height: 56px; border-radius: 12px; }
   .tname { font-size: 1.375rem; }
   .tgo { width: 18px; padding: 0; border: 0; font-size: 0; justify-content: flex-end; color: var(--blue); }
-  .tuiles { margin: 0 6px; }
+  .tuiles { margin: 0 28px; }
+  .shots { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 8px; padding: 0 6px; scroll-padding-inline: 6px; scrollbar-width: none; }
+  .shots::-webkit-scrollbar { display: none; }
+  .shots figure { flex: 0 0 78%; scroll-snap-align: start; }
+  .shots img { height: 340px; border-radius: 18px; }
   .review { padding-left: 20px; }
   .fiche { padding-top: 72px; }
   .fiche::before { height: 80px; }
