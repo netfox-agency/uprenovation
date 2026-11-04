@@ -83,11 +83,22 @@
 .lp .ask-card .form-state b { color: var(--ink); }
 .callbar.show { transform: none; }
 
+/* Ses chantiers : mêmes vignettes que le chantier de l'accueil */
+.lp-galerie { margin: 0 auto; padding: 0 var(--pad); width: min(100%, calc(1240px + var(--pad) * 2)); display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.lp-galerie[data-n="3"] { grid-template-columns: repeat(3, 1fr); width: min(100%, calc(var(--wrap) + var(--pad) * 2)); }
+.lp-galerie figure { margin: 0; }
+.lp-galerie img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 18px; }
+.lp-galerie figcaption { margin-top: 12px; color: var(--ink-2); font-size: var(--t6); max-width: 30ch; }
+
+/* Pied de page : le lien vers les mentions reste discret mais touchable */
+.foot-bottom a { display: inline-flex; align-items: center; min-height: 44px; }
+
 /* ============ Tablette ============ */
 @media (max-width: 1068px) {
   .lp-risques, .lp-steps { grid-template-columns: 1fr 1fr; }
   .lp-texte, .lp-prix-in { grid-template-columns: 1fr; }
   .lp-urgent { position: static; }
+  .lp-galerie, .lp-galerie[data-n="3"] { grid-template-columns: 1fr 1fr; }
   .lp-hero .hero-in { right: calc(380px + 48px); }
   .lp-card { width: 380px; }
 }
@@ -108,4 +119,7 @@
   .lp-card { padding: 22px 18px; border-radius: 20px; }
   .lp-risques, .lp-steps { grid-template-columns: 1fr; }
   .lp-prix { margin: 0 6px; }
+  .lp-galerie, .lp-galerie[data-n="3"] { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--pad); padding-bottom: 8px; scrollbar-width: none; }
+  .lp-galerie::-webkit-scrollbar { display: none; }
+  .lp-galerie figure { flex: 0 0 72%; scroll-snap-align: start; }
 }

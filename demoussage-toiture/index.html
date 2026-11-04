@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="../lp/img/demoussage-toiture-gironde.jpg">
-<link rel="stylesheet" href="../styles.css?v=7">
-<link rel="stylesheet" href="../lp/lp.css?v=7">
+<link rel="stylesheet" href="../styles.css?v=8">
+<link rel="stylesheet" href="../lp/lp.css?v=8">
 </head>
 <body class="lp">
 
@@ -30,7 +30,7 @@
 
 <header class="nav on-photo" id="nav">
   <div class="nav-in">
-    <a class="nav-logo" href="#main" aria-label="Up Rénovation 33"><span class="mark">Up Rénovation</span><span class="mark-n">33</span></a>
+    <a class="nav-logo" href="/" aria-label="Up Rénovation 33, accueil"><span class="mark">Up Rénovation</span><span class="mark-n">33</span></a>
     <nav class="nav-links" aria-label="Navigation">
       <a href="#methode">La méthode</a>
       <a href="#prix">Prix</a>
@@ -87,8 +87,7 @@
       </div>
       <div class="field">
         <label for="x-ville">Commune du chantier</label>
-        <input type="text" id="x-ville" name="commune" autocomplete="address-level2" placeholder="La Réole, Langon…" required>
-        <p class="err">Merci d’indiquer la commune du chantier.</p>
+        <input type="text" id="x-ville" name="commune" autocomplete="address-level2" placeholder="La Réole, Langon…">
       </div>
       <button type="submit" class="btn btn-wide">Recevoir mon devis</button>
       <p class="form-foot">Sans engagement. Diagnostic et devis gratuits.</p>
@@ -140,14 +139,28 @@
   </div>
 </section>
 
+<section class="lp-sec lp-sec-top0" aria-labelledby="photos-t">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="photos-t" class="reveal">Sur ses chantiers.</h2>
+      <p class="reveal">Photos prises par Peter sur ses toits, pas dans une banque d’images.</p>
+    </div>
+  </div>
+  <div class="lp-galerie" data-n="3">
+    <figure class="reveal"><img src="../lp/img/g-mousse.webp" alt="Avant&nbsp;: la mousse a gagné tout le versant." loading="lazy" width="660" height="880"><figcaption>Avant&nbsp;: la mousse a gagné tout le versant.</figcaption></figure>
+    <figure class="reveal"><img src="../lp/img/g-lichen.webp" alt="Mousse et lichens incrustés dans la tuile canal." loading="lazy" width="660" height="880"><figcaption>Mousse et lichens incrustés dans la tuile canal.</figcaption></figure>
+    <figure class="reveal"><img src="../lp/img/g-demoussage-cours.webp" alt="Démoussage en cours&nbsp;: la partie traitée retrouve sa couleur." loading="lazy" width="660" height="880"><figcaption>Démoussage en cours&nbsp;: la partie traitée retrouve sa couleur.</figcaption></figure>
+  </div>
+</section>
+
 <section class="lp-sec lp-sec-top0" id="methode" aria-labelledby="methode-t">
   <div class="wrap">
     <div class="head"><h2 id="methode-t" class="reveal">Comment ça se passe.</h2></div>
     <ol class="lp-steps">
-      <li class="reveal"><span>01</span><b>Vous appelez</b><p>Peter vous répond lui-même et qualifie l’urgence au téléphone. Si l’eau coule, il vous donne les gestes à faire tout de suite.</p></li>
-      <li class="reveal"><span>02</span><b>Sécurisation</b><p>Si nécessaire, il bâche et met hors d’eau la toiture avant toute chose.</p></li>
-      <li class="reveal"><span>03</span><b>Diagnostic sur le toit</b><p>Tuiles, faîtage, rives, solins, zinguerie et bois visibles&nbsp;: tout est contrôlé, photos à l’appui. C’est gratuit.</p></li>
-      <li class="reveal"><span>04</span><b>Travaux + devis</b><p>Un devis écrit et détaillé, l’urgent séparé de ce qui peut attendre. Utilisable auprès de votre assurance.</p></li>
+      <li class="reveal"><span>01</span><b>Vous appelez</b><p>Peter vous répond lui-même. Quelques photos du toit par SMS suffisent souvent pour un premier avis.</p></li>
+      <li class="reveal"><span>02</span><b>Diagnostic sur le toit</b><p>État des tuiles, de la mousse, des faîtages et des gouttières&nbsp;: tout est contrôlé, photos à l’appui. C’est gratuit.</p></li>
+      <li class="reveal"><span>03</span><b>Devis écrit</b><p>La surface, l’accès et le traitement choisi, détaillés. Les tuiles cassées repérées y sont signalées.</p></li>
+      <li class="reveal"><span>04</span><b>Démoussage et traitement</b><p>Démoussage à la main et à basse pression, puis antimousse, et hydrofuge si vous le souhaitez.</p></li>
     </ol>
   </div>
 </section>
@@ -212,17 +225,17 @@
         <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
         <div class="field">
           <label for="f-nom">Votre nom</label>
-          <input type="text" id="f-nom" name="nom" autocomplete="name" required>
+          <input type="text" id="f-nom" name="nom" autocomplete="name" placeholder="Nom et prénom" required>
           <p class="err">Merci d’indiquer votre nom.</p>
         </div>
         <div class="field">
           <label for="f-tel">Votre téléphone</label>
-          <input type="tel" id="f-tel" name="telephone" autocomplete="tel" inputmode="tel" required>
+          <input type="tel" id="f-tel" name="telephone" autocomplete="tel" inputmode="tel" placeholder="06 00 00 00 00" required>
           <p class="err">Merci d’indiquer un téléphone où vous joindre.</p>
         </div>
         <div class="field">
           <label for="f-ville">Commune du chantier</label>
-          <input type="text" id="f-ville" name="commune" autocomplete="address-level2">
+          <input type="text" id="f-ville" name="commune" autocomplete="address-level2" placeholder="La Réole, Langon…">
         </div>
         <div class="field">
           <label for="f-msg">Votre message <small>facultatif</small></label>
@@ -254,6 +267,7 @@
     </div>
     <div class="foot-in foot-bottom">
       <p>© 2026 Up Rénovation 33 · URRUTIA Peter, entrepreneur individuel · SIRET 511 494 098 00011</p>
+      <p><a href="/mentions-legales">Mentions légales</a></p>
     </div>
   </div>
 </footer>

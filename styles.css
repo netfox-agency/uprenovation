@@ -396,3 +396,7 @@ body.is-locked { overflow: hidden; }
 }
 .grid .card:active img { transform: scale(.99); }
 .grid .card:focus-visible { outline: 2px solid var(--blue); outline-offset: 6px; }
+
+/* Bouton du menu : la pastille reste fine, la zone touchable fait 44 px */
+.nav-cta { position: relative; }
+.nav-cta::after { content: ""; position: absolute; inset: -8px -4px; }
