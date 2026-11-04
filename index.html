@@ -18,10 +18,10 @@
 <meta property="og:image" content="https://uprenovation33.fr/lp/img/toiture-tuile-canal-la-reole.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Libre+Caslon+Text:ital@1&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero.webp" imagesrcset="assets/img/hero-1600.webp 1600w, assets/img/hero.webp 2400w" imagesizes="100vw" media="(min-width: 735px)">
 <link rel="preload" as="image" href="assets/img/hero-m.webp" media="(max-width: 734px)">
-<link rel="stylesheet" href="styles.css?v=202611041200">
+<link rel="stylesheet" href="styles.css?v=202611041500">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -85,47 +85,43 @@
 <!-- Métiers -->
 <section class="trades" id="metiers" aria-labelledby="trades-t">
   <div class="wrap">
-    <div class="head">
-      <h2 id="trades-t" class="reveal">Du faîtage à la façade.</h2>
-      <p class="reveal">Les photos des métiers et des chantiers sont celles de Peter. Celui qui vous fait le devis est celui qui monte sur le toit.</p>
+    <div class="head head-split">
+      <h2 id="trades-t" class="reveal">Du faîtage à la <em>façade</em>.</h2>
+      <p class="reveal">Les photos sont celles de ses chantiers. Celui qui vous fait le devis est celui qui monte sur le toit.</p>
     </div>
-    <ul class="grid">
-      <li class="reveal"><a class="card" href="/couvreur-la-reole/">
+    <div class="trades-grid">
+      <a class="tcard tcard-xl reveal" href="/couvreur-la-reole/">
         <img src="assets/img/m-couverture.webp" alt="Faîtage neuf sur une toiture en tuiles canal" loading="lazy" width="900" height="1200">
-        <h3>Couverture</h3>
-        <p>Réfection complète ou partielle, tuiles canal et romanes, faîtages et rives.</p>
-          <span class="more">En savoir plus</span>
-        </a></li>
-      <li class="reveal"><a class="card" href="#devis" data-go="Toiture">
-        <img src="assets/img/m-charpente.webp" alt="Chevrons neufs posés entre les bois d’origine" loading="lazy" width="900" height="1200">
-        <h3>Charpente</h3>
-        <p>Chevrons et liteaux abîmés remplacés avant de recouvrir.</p>
-          <span class="more">Demander un devis</span>
-        </a></li>
-      <li class="reveal"><a class="card" href="/demoussage-toiture/">
-        <img src="assets/img/m-demoussage.webp" alt="Toiture à moitié démoussée, la partie nettoyée retrouve sa couleur" loading="lazy" width="900" height="1200">
-        <h3>Démoussage</h3>
-        <p>Nettoyage des tuiles, traitement antimousse et hydrofuge.</p>
-          <span class="more">En savoir plus</span>
-        </a></li>
-      <li class="reveal"><a class="card" href="/reparation-fuite-toiture/">
+        <div class="tcard-in">
+          <span class="tnum">01</span>
+          <h3>Couverture</h3>
+          <p>Réfection complète ou partielle, tuiles canal et romanes, faîtages et rives.</p>
+          <span class="tgo">Voir la couverture</span>
+        </div>
+      </a>
+      <a class="tcard reveal" href="/reparation-fuite-toiture/">
         <img src="assets/img/m-etancheite.webp" alt="Rive de toiture en cours de reprise contre un mur" loading="lazy" width="900" height="1200">
-        <h3>Zinguerie et étanchéité</h3>
-        <p>Fuites, solins, gouttières et descentes. On cherche l’entrée d’eau avant de réparer.</p>
-          <span class="more">En savoir plus</span>
-        </a></li>
-      <li class="reveal"><a class="card" href="#devis" data-go="Façade">
-        <img src="assets/img/m-facade.webp" alt="Façade de maison repeinte en blanc cassé" loading="lazy" width="1000" height="750">
-        <h3>Façades</h3>
-        <p>Nettoyage, traitement et peinture des enduits.</p>
-          <span class="more">Demander un devis</span>
-        </a></li>
-      <li class="reveal"><a class="card" href="#devis" data-go="Autre">
-        <img src="assets/img/m-isolation.webp" alt="Pièce rénovée, plafond et cloisons en plaques de plâtre" loading="lazy" width="1000" height="750">
-        <h3>Isolation et intérieur</h3>
-        <p>Isolation des combles, plafonds, cloisons et peinture.</p>
-          <span class="more">Demander un devis</span>
-        </a></li>
+        <div class="tcard-in">
+          <span class="tnum">02</span>
+          <h3>Fuites et zinguerie</h3>
+          <p>Solins, rives, gouttières. On cherche l’entrée d’eau avant de réparer.</p>
+          <span class="tgo">Voir les réparations</span>
+        </div>
+      </a>
+      <a class="tcard reveal" href="/demoussage-toiture/">
+        <img src="assets/img/m-demoussage.webp" alt="Toiture à moitié démoussée, la partie nettoyée retrouve sa couleur" loading="lazy" width="900" height="1200">
+        <div class="tcard-in">
+          <span class="tnum">03</span>
+          <h3>Démoussage</h3>
+          <p>Nettoyage des tuiles, antimousse et hydrofuge.</p>
+          <span class="tgo">Voir le démoussage</span>
+        </div>
+      </a>
+    </div>
+    <ul class="also" aria-label="Autres travaux">
+      <li class="reveal"><a href="#devis" data-go="Toiture"><img src="assets/img/m-charpente.webp" alt="" loading="lazy" width="900" height="1200"><span><b>Charpente</b><small>Chevrons et liteaux abîmés remplacés avant de recouvrir.</small></span><i aria-hidden="true"></i></a></li>
+      <li class="reveal"><a href="#devis" data-go="Façade"><img src="assets/img/m-facade.webp" alt="" loading="lazy" width="1000" height="750"><span><b>Façades</b><small>Nettoyage, traitement et peinture des enduits.</small></span><i aria-hidden="true"></i></a></li>
+      <li class="reveal"><a href="#devis" data-go="Autre"><img src="assets/img/m-isolation.webp" alt="" loading="lazy" width="1000" height="750"><span><b>Isolation et intérieur</b><small>Combles, plafonds, cloisons et peinture.</small></span><i aria-hidden="true"></i></a></li>
     </ul>
   </div>
 </section>
@@ -133,22 +129,27 @@
 <!-- Un chantier, étape par étape -->
 <section class="build" id="chantiers" aria-labelledby="build-t">
   <div class="wrap">
-    <div class="head">
+    <div class="head head-split">
       <h2 id="build-t" class="reveal">Un toit à La Réole, de la dépose aux tuiles.</h2>
       <p class="reveal">Sous les tuiles, les bois avaient pris l’eau. Peter les a remplacés avant de recouvrir.</p>
     </div>
   </div>
   <ol class="steps" aria-label="Les étapes du chantier">
-    <li><img src="assets/img/c-1.webp" alt="Toiture découverte, voliges anciennes à nu" loading="lazy" width="900" height="1200"><p><b>Dépose.</b> Les tuiles enlevées, les voliges apparaissent.</p></li>
-    <li><img src="assets/img/c-2.webp" alt="Bois de charpente abîmés par l’humidité" loading="lazy" width="900" height="1200"><p><b>Diagnostic.</b> Les bois abîmés sont repérés un par un.</p></li>
-    <li><img src="assets/img/c-3.webp" alt="Chevrons neufs en bois clair posés dans la charpente" loading="lazy" width="900" height="1200"><p><b>Charpente.</b> Chevrons neufs, posés au niveau.</p></li>
-    <li><img src="assets/img/c-4.webp" alt="Toiture terminée en tuiles canal, faîtage neuf" loading="lazy" width="1000" height="750"><p><b>Couverture.</b> Tuiles canal et faîtage neufs.</p></li>
+    <li><span class="sn">01</span><img src="assets/img/c-1.webp" alt="Toiture découverte, voliges anciennes à nu" loading="lazy" width="900" height="1200"><p><b>Dépose.</b> Les tuiles enlevées, les voliges apparaissent.</p></li>
+    <li><span class="sn">02</span><img src="assets/img/c-2.webp" alt="Bois de charpente abîmés par l’humidité" loading="lazy" width="900" height="1200"><p><b>Diagnostic.</b> Les bois abîmés sont repérés un par un.</p></li>
+    <li><span class="sn">03</span><img src="assets/img/c-3.webp" alt="Chevrons neufs en bois clair posés dans la charpente" loading="lazy" width="900" height="1200"><p><b>Charpente.</b> Chevrons neufs, posés au niveau.</p></li>
+    <li><span class="sn">04</span><img src="assets/img/c-4.webp" alt="Toiture terminée en tuiles canal, faîtage neuf" loading="lazy" width="1000" height="750"><p><b>Couverture.</b> Tuiles canal et faîtage neufs.</p></li>
   </ol>
   <div class="wrap">
-    <div class="pair-ba reveal">
+    <div class="ba reveal">
+      <div class="ba-txt">
+        <h3>Avant, après.</h3>
+        <p>Un pignon noirci par les salissures, nettoyé, traité puis repeint. Même maison, même angle.</p>
+      </div>
+      <div class="pair-ba">
       <figure><img src="assets/img/f-avant.webp" alt="Pignon de maison noirci par les salissures, avant les travaux" loading="lazy" width="900" height="1601"><figcaption>Avant</figcaption></figure>
       <figure><img src="assets/img/f-apres.webp" alt="Le même pignon nettoyé et repeint, après les travaux" loading="lazy" width="900" height="1601"><figcaption>Après</figcaption></figure>
-      <p class="pair-cap">Pignon nettoyé, traité et repeint.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -196,20 +197,23 @@
 
 <!-- Peter -->
 <section class="about" aria-labelledby="about-t">
-  <div class="wrap">
-    <div class="about-in">
+  <div class="wrap about-grid">
+    <figure class="review reveal">
+      <div class="stars" role="img" aria-label="5 étoiles sur 5">
+        <svg viewBox="0 0 100 20" aria-hidden="true"><g fill="currentColor"><path id="st" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/><use href="#st" x="20"/><use href="#st" x="40"/><use href="#st" x="60"/><use href="#st" x="80"/></g></svg>
+      </div>
+      <blockquote><p>«&#8239;Travail de qualité dans le rendu et dans la ponctualité.&#8239;»</p></blockquote>
+      <figcaption><b>Ida N.</b> · avis Google, rénovation intérieure et extérieure</figcaption>
+    </figure>
+    <div class="about-txt">
       <h2 id="about-t" class="reveal">Un artisan, un numéro.</h2>
       <p class="reveal">Up Rénovation 33, c’est Peter Urrutia, couvreur installé à Loubens, à cinq minutes de La Réole. Il vient voir, il chiffre, il fait le chantier. Vous avez le même interlocuteur du premier appel à la dernière tuile.</p>
+      <dl class="facts">
+        <div class="reveal"><dt>0&nbsp;€</dt><dd>le devis, sur place ou sur photos</dd></div>
+        <div class="reveal"><dt>5,0</dt><dd>sur Google, travail soigné et ponctuel</dd></div>
+        <div class="reveal"><dt>2009</dt><dd>année de création de l’entreprise</dd></div>
+      </dl>
     </div>
-    <dl class="facts">
-      <div class="reveal"><dt>0&nbsp;€</dt><dd>le devis, sur place ou sur photos.</dd></div>
-      <div class="reveal"><dt>3</dt><dd>départements&#8239;: Gironde, Lot-et-Garonne et nord des Landes.</dd></div>
-      <div class="reveal"><dt>5,0</dt><dd>sur Google. Ses clients parlent d’un travail soigné et ponctuel.</dd></div>
-    </dl>
-    <blockquote class="quote-client reveal">
-      <p>«&#8239;Travail de qualité dans le rendu et dans la ponctualité.&#8239;»</p>
-      <footer>Ida N., avis Google, rénovation intérieure et extérieure</footer>
-    </blockquote>
   </div>
 </section>
 
@@ -220,8 +224,8 @@
       <h2 id="zone-t" class="reveal">Autour de La Réole.</h2>
       <p class="reveal">Choisissez une commune pour voir la distance depuis Loubens.</p>
       <ul class="legend">
-        <li><i class="k-near"></i><b>Moins de 20&nbsp;km</b><span>La Réole, Monségur, Sauveterre-de-Guyenne, Meilhan-sur-Garonne</span></li>
-        <li><i class="k-mid"></i><b>20 à 40&nbsp;km</b><span>Langon, Marmande, Bazas, Saint-Macaire, Cadillac, Duras</span></li>
+        <li><i class="k-near"></i><b>Moins de 20&nbsp;km</b><span class="chips"><em>La Réole</em><em>Monségur</em><em>Sauveterre-de-Guyenne</em><em>Meilhan-sur-Garonne</em></span></li>
+        <li><i class="k-mid"></i><b>20 à 40&nbsp;km</b><span class="chips"><em>Langon</em><em>Marmande</em><em>Bazas</em><em>Saint-Macaire</em><em>Cadillac</em><em>Duras</em></span></li>
         <li><i class="k-far"></i><b>Plus loin</b><span>Gironde, Lot-et-Garonne et nord des Landes, selon le chantier</span></li>
       </ul>
     </div>
@@ -279,15 +283,27 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p class="foot-note">Les photos des métiers et des chantiers sont des réalisations d’Up Rénovation 33.</p>
-    <div class="foot-in">
-      <p><b>Up Rénovation 33</b> · Peter Urrutia · 8 Grand Champ, 33190 Loubens</p>
-      <p><a href="tel:+33678446109">06 78 44 61 09</a> · <a href="mailto:urrutiapeterrenovation@gmail.com">urrutiapeterrenovation@gmail.com</a></p>
-      <p>SIRET 511 494 098 00011</p>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <p class="foot-mark">Up Rénovation <span>33</span></p>
+        <p>Couvreur à Loubens, près de La Réole.<br>Peter Urrutia, artisan depuis 2009.</p>
+      </div>
+      <div class="foot-col">
+        <p class="foot-h">Contact</p>
+        <a href="tel:+33678446109">06 78 44 61 09</a>
+        <a href="mailto:urrutiapeterrenovation@gmail.com">urrutiapeterrenovation@gmail.com</a>
+        <p>8 Grand Champ, 33190 Loubens</p>
+      </div>
+      <div class="foot-col">
+        <p class="foot-h">Travaux</p>
+        <a href="/couvreur-la-reole/">Couvreur à La Réole</a>
+        <a href="/reparation-fuite-toiture/">Fuite de toiture</a>
+        <a href="/demoussage-toiture/">Démoussage</a>
+      </div>
     </div>
     <div class="foot-in foot-bottom">
-      <p>Copyright © 2026 Up Rénovation 33.</p>
-      <p class="foot-links"><a href="/couvreur-la-reole/">Couvreur La Réole</a><a href="/reparation-fuite-toiture/">Fuite de toiture</a><a href="/demoussage-toiture/">Démoussage</a><a href="/mentions-legales">Mentions légales</a></p>
+      <p>© 2026 Up Rénovation 33 · SIRET 511 494 098 00011 · Les photos des métiers et des chantiers sont des réalisations d’Up Rénovation 33.</p>
+      <p class="foot-links"><a href="/mentions-legales">Mentions légales</a></p>
     </div>
   </div>
 </footer>

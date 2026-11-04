@@ -64,9 +64,9 @@
 .lp-urgent p { margin-top: 10px; color: var(--ink-2); }
 
 .lp-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 24px; }
-.lp-steps li { padding-top: 20px; border-top: 1px solid var(--line); }
-.lp-steps span { display: block; font-size: var(--t7); font-weight: 600; color: var(--blue); font-variant-numeric: tabular-nums; }
-.lp-steps b { display: block; margin-top: 10px; font-size: var(--t4); font-weight: 600; letter-spacing: -.02em; }
+.lp-steps li { padding-top: 0; border-top: 0; }
+.lp-steps span { display: block; font-family: var(--serif); font-style: italic; font-size: 1.75rem; line-height: 1; color: var(--blue); }
+.lp-steps b { display: block; margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--t4); font-weight: 600; letter-spacing: -.02em; }
 .lp-steps p { margin-top: 8px; color: var(--ink-2); }
 
 .lp-prix { margin: 0 10px; }
