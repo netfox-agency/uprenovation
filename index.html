@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Libre+Caslon+Text:ital@1&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero.webp" imagesrcset="assets/img/hero-1600.webp 1600w, assets/img/hero.webp 2400w" imagesizes="100vw" media="(min-width: 735px)">
 <link rel="preload" as="image" href="assets/img/hero-m.webp" media="(max-width: 734px)">
-<link rel="stylesheet" href="styles.css?v=202611041900">
+<link rel="stylesheet" href="styles.css?v=202611061300">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -66,12 +66,18 @@
     </picture>
     <div class="hero-in">
       <div class="hero-txt">
+        <p class="hero-note"><span class="g" aria-hidden="true">G</span><b>5,0</b><span class="stars" aria-hidden="true"><svg viewBox="0 0 100 20"><g fill="currentColor"><use href="#st"/><use href="#st" x="20"/><use href="#st" x="40"/><use href="#st" x="60"/><use href="#st" x="80"/></g></svg></span><span>sur Google</span></p>
         <h1 id="hero-t">Bien couvert.</h1>
         <p>Couverture, charpente, démoussage et façades autour de La Réole. Un artisan couvreur, installé à Loubens.</p>
         <div class="hero-cta">
           <a class="btn btn-white" href="#devis">Demander un devis</a>
           <a class="link link-white" href="tel:+33678446109">Appeler Peter</a>
         </div>
+        <ul class="hero-facts">
+          <li><b>2009</b>entreprise créée</li>
+          <li><b>0&nbsp;€</b>le devis</li>
+          <li><b>1</b>seul interlocuteur</li>
+        </ul>
       </div>
       <nav class="paths-mini" aria-label="Votre demande">
         <a href="#devis" data-go="Fuite ou urgence"><span><b>Une fuite, des tuiles cassées</b><small>Peter vous rappelle</small></span><i aria-hidden="true"></i></a>
@@ -80,6 +86,14 @@
     </div>
   </div>
 </section>
+
+<!-- Les métiers, en bande défilante -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-in">
+    <span>Couverture</span><span>Tuile canal</span><span>Charpente</span><span>Recherche de fuite</span><span>Zinguerie</span><span>Démoussage</span><span>Hydrofuge</span><span>Façades</span><span>Isolation</span>
+    <span>Couverture</span><span>Tuile canal</span><span>Charpente</span><span>Recherche de fuite</span><span>Zinguerie</span><span>Démoussage</span><span>Hydrofuge</span><span>Façades</span><span>Isolation</span>
+  </div>
+</div>
 
 <!-- Métiers : un index, l'aperçu photo suit la ligne survolée -->
 <section class="trades" id="metiers" aria-labelledby="trades-t">
@@ -129,6 +143,23 @@
         <span class="tgo">Devis</span>
       </a></li>
     </ul>
+  </div>
+</section>
+
+<!-- Avant / après : on fait glisser la poignée -->
+<section class="before" aria-labelledby="before-t">
+  <div class="wrap before-in">
+    <div class="before-txt">
+      <h2 id="before-t" class="reveal">Même maison, même angle.</h2>
+      <p class="reveal">Un pignon noirci par les salissures, nettoyé, traité puis repeint par Peter. Faites glisser la poignée.</p>
+    </div>
+    <div class="ba-slider reveal" style="--pos: 50%">
+      <img src="assets/img/f-apres.webp" alt="Le pignon après les travaux, nettoyé et repeint" loading="lazy" width="900" height="1601">
+      <img class="ba-avant" src="assets/img/f-avant.webp" alt="Le même pignon avant les travaux, noirci par les salissures" loading="lazy" width="900" height="1601">
+      <span class="ba-tag ba-tag-l">Avant</span><span class="ba-tag ba-tag-r">Après</span>
+      <span class="ba-handle" aria-hidden="true"></span>
+      <input type="range" min="0" max="100" value="50" aria-label="Comparer avant et après les travaux">
+    </div>
   </div>
 </section>
 
@@ -211,6 +242,17 @@
         <a class="btn btn-wide" href="tel:+33678446109">Appeler Peter · 06 78 44 61 09</a>
       </div>
     </aside>
+  </div>
+</section>
+
+<!-- Urgence fuite -->
+<section class="urgent" aria-labelledby="urgent-t">
+  <div class="wrap urgent-in">
+    <div>
+      <h2 id="urgent-t">Une fuite&#8239;? N’attendez pas la prochaine pluie.</h2>
+      <p>Tuiles envolées, eau au plafond&#8239;: appelez Peter, il vous dit quoi faire tout de suite et passe sécuriser le toit.</p>
+    </div>
+    <a class="btn btn-white" href="tel:+33678446109">Appeler · 06 78 44 61 09</a>
   </div>
 </section>
 
@@ -312,6 +354,6 @@
 
 <script src="config.js?v=3"></script>
 <script src="suivi.js?v=1"></script>
-<script src="script.js?v=202611041700"></script>
+<script src="script.js?v=202611061200"></script>
 </body>
 </html>

@@ -535,3 +535,71 @@ body { background: var(--paper); }
   .foot-top { grid-template-columns: 1fr; }
   .foot .foot-bottom { align-items: flex-start; }
 }
+
+/* ===================================================================
+   Rythme : note dans l'ouverture, bande défilante, avant/après sombre,
+   bande urgence couleur tuile (direction de Peter conservée)
+   =================================================================== */
+
+/* Ouverture : note Google au-dessus du titre, trois repères en dessous */
+.hero-note { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; padding: 6px 14px 6px 6px; border-radius: 980px; background: rgba(20, 24, 30, .38); -webkit-backdrop-filter: saturate(180%) blur(16px); backdrop-filter: saturate(180%) blur(16px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); font-size: var(--t6); color: rgba(255, 255, 255, .86); max-width: none !important; }
+.hero-note .g { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #fff; color: #4285F4; font-weight: 700; font-size: 13px; }
+.hero-note b { color: #fff; font-weight: 600; }
+.hero-note .stars { width: 70px; color: #F2B544; }
+.hero-txt .hero-note { margin-top: 0; font-size: var(--t6); line-height: 1; }
+.hero-facts { list-style: none; margin: 28px 0 0; padding: 18px 0 0; display: flex; gap: 32px; border-top: 1px solid rgba(255, 255, 255, .18); }
+.hero-facts li { display: flex; align-items: baseline; gap: 8px; font-size: var(--t7); color: rgba(255, 255, 255, .72); }
+.hero-facts b { font-size: 1.375rem; font-weight: 600; color: #fff; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+
+/* Bande défilante des métiers */
+.ticker { overflow: hidden; margin: 10px 10px 0; padding: 22px 0; border-block: 1px solid var(--line); }
+.ticker-in { display: flex; width: max-content; animation: defile 48s linear infinite; }
+.ticker span { display: inline-flex; align-items: center; font-size: clamp(1.25rem, 1rem + .8vw, 1.75rem); font-weight: 600; letter-spacing: -.03em; color: var(--ink); white-space: nowrap; }
+.ticker span::after { content: ""; width: 10px; height: 5px; margin: 0 28px; border-radius: 10px 10px 0 0; background: var(--blue); }
+@keyframes defile { to { transform: translateX(-50%); } }
+
+/* Avant / après : section ardoise, poignée à glisser */
+.before { margin: 0 10px; padding-block: clamp(80px, 9vw, 128px); background: var(--navy); color: #fff; border-radius: 28px; }
+.before-in { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px 88px; align-items: center; }
+.before-txt p { margin-top: 18px; font-size: var(--t4); line-height: 1.45; color: rgba(255, 255, 255, .74); max-width: 32ch; }
+.ba-slider { position: relative; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; background: #15181b; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); touch-action: pan-y; }
+.ba-slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; pointer-events: none; user-select: none; }
+.ba-avant { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; pointer-events: none; }
+.ba-handle::after { content: ""; position: absolute; top: 50%; left: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1916' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 7l-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E") center / 22px no-repeat; box-shadow: 0 6px 20px rgba(0, 0, 0, .3); }
+.ba-tag { position: absolute; top: 16px; padding: 5px 12px; border-radius: 980px; background: rgba(255, 255, 255, .9); color: var(--ink); font-size: var(--t7); font-weight: 600; pointer-events: none; }
+.ba-tag-l { left: 16px; }
+.ba-tag-r { right: 16px; }
+.ba-slider input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
+.ba-slider:has(input:focus-visible) { outline: 2px solid #fff; outline-offset: 4px; }
+.before + .shots { margin-top: clamp(64px, 8vw, 104px); }
+
+/* Bande urgence : la couleur tuile en grand */
+.urgent { margin: 0 10px 10px; padding-block: clamp(56px, 6vw, 80px); background: var(--blue); color: #fff; border-radius: 28px; position: relative; overflow: hidden; }
+.urgent::before { content: ""; position: absolute; inset: auto 0 0; height: 16px; opacity: .22; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='16' viewBox='0 0 36 16'%3E%3Cpath d='M-9 16a9 9 0 0 1 18 0zM27 16a9 9 0 0 1 18 0zM8 16a10 10 0 0 1 20 0z' fill='%23000'/%3E%3C/svg%3E") repeat-x left bottom / 36px 16px; }
+.urgent-in { display: flex; align-items: center; justify-content: space-between; gap: 32px 56px; }
+.urgent h2 { font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.75rem); max-width: 20ch; }
+.urgent p { margin-top: 12px; color: rgba(255, 255, 255, .86); max-width: 52ch; }
+.urgent .btn { flex: none; min-height: 56px; padding: 0 28px; font-weight: 600; }
+
+/* La tuile un peu plus présente : valeurs de la fiche, chiffres de l'ouverture */
+.fiche dl > div:nth-child(-n+2) dd { color: var(--blue); }
+
+@media (max-width: 1068px) {
+  .before-in { grid-template-columns: 1fr; }
+  .ba-slider { max-width: 520px; }
+  .urgent-in { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 734px) {
+  .hero-facts { gap: 18px; margin-top: 22px; padding-top: 14px; }
+  .hero-facts b { font-size: 1.125rem; }
+  .hero-facts li { flex-direction: column; align-items: flex-start; gap: 0; line-height: 1.3; }
+  .hero-note { margin-bottom: 14px; }
+  .ticker { margin: 6px 6px 0; padding: 16px 0; }
+  .ticker span::after { margin: 0 18px; }
+  .before { margin: 0 6px; border-radius: 22px; }
+  .ba-slider { border-radius: 18px; }
+  .urgent { margin: 0 6px 6px; border-radius: 22px; }
+  .urgent .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .ticker-in { animation: none; } }

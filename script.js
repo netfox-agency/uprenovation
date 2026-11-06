@@ -89,6 +89,12 @@ $$('[data-go]').forEach(a => a.addEventListener('click', () => {
   montrer(lignes[0]);
 })();
 
+/* ---------- Avant / après : le curseur (accessible au clavier) déplace la coupure ---------- */
+$$('.ba-slider').forEach(box => {
+  const r = $('input', box);
+  r.addEventListener('input', () => box.style.setProperty('--pos', r.value + '%'));
+});
+
 /* ---------- Demande : seul le téléphone est obligatoire ----------
    Envoi par Web3Forms (FormData, sans preflight CORS), clé dans config.js.
    Les photos ne passent pas par Web3Forms (offre gratuite) : on propose le SMS. */
