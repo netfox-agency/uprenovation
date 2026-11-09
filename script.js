@@ -2,30 +2,33 @@
    Pas de prix affiché : une toiture se chiffre sur photos ou sur place.
    Envoi des formulaires à brancher (Web3Forms) une fois le site validé. */
 
-/* Communes autour de Loubens. Distances calculées à vol d'oiseau × 1,25 (route), arrondies. */
-const HOME = { n: 'Loubens', lat: 44.612, lon: -0.033 };
+/* Bordeaux au centre, communes jusqu'à 100 km. Distances à vol d'oiseau × 1,25 (route), arrondies.
+   Le client travaille surtout sur Bordeaux et jusqu'à 100 km (demande du 09/11/2026). */
+const HOME = { n: 'Bordeaux', lat: 44.8378, lon: -0.5792 };
 const TOWNS = [
-  { n: 'La Réole', lat: 44.583, lon: -0.034, major: 1, dy: 26, dx: 0, a: 'middle' },
-  { n: 'Caudrot', lat: 44.577, lon: -0.153, dy: -12, dx: 0, a: 'middle' },
-  { n: 'Langon', lat: 44.553, lon: -0.249, major: 1, dy: 26, dx: 4, a: 'middle' },
-  { n: 'Saint-Macaire', lat: 44.565, lon: -0.225, dy: -12, dx: 0, a: 'middle' },
-  { n: 'Cadillac', lat: 44.637, lon: -0.318 },
-  { n: 'Targon', lat: 44.735, lon: -0.264 },
-  { n: 'Sauveterre-de-Guyenne', lat: 44.693, lon: -0.086 },
-  { n: 'Pellegrue', lat: 44.744, lon: 0.075 },
-  { n: 'Monségur', lat: 44.650, lon: 0.081 },
-  { n: 'Duras', lat: 44.676, lon: 0.183, dx: -12, a: 'end' },
-  { n: 'Meilhan-sur-Garonne', lat: 44.511, lon: 0.034 },
-  { n: 'Marmande', lat: 44.500, lon: 0.165, major: 1, dx: -12, a: 'end' },
-  { n: 'Auros', lat: 44.506, lon: -0.141 },
-  { n: 'Bazas', lat: 44.432, lon: -0.212, major: 1 },
+  { n: 'Mérignac', lat: 44.8386, lon: -0.6436, dx: -12, a: 'end' },
+  { n: 'Libourne', lat: 44.9150, lon: -0.2436, major: 1 },
+  { n: 'Saint-Émilion', lat: 44.8939, lon: -0.1553, dy: 20 },
+  { n: 'Créon', lat: 44.7747, lon: -0.3478 },
+  { n: 'Cadillac', lat: 44.6372, lon: -0.3183 },
+  { n: 'Blaye', lat: 45.1278, lon: -0.6622, major: 1 },
+  { n: 'Castelnau-de-Médoc', lat: 45.0300, lon: -0.7981, dx: -12, a: 'end' },
+  { n: 'Pauillac', lat: 45.1989, lon: -0.7486, dx: -12, a: 'end' },
+  { n: 'Lesparre-Médoc', lat: 45.3072, lon: -0.9378, dx: -12, a: 'end' },
+  { n: 'Andernos-les-Bains', lat: 44.7453, lon: -1.1036, dx: -12, a: 'end' },
+  { n: 'Arcachon', lat: 44.6586, lon: -1.1689, major: 1, dx: -12, a: 'end' },
+  { n: 'Belin-Béliet', lat: 44.5003, lon: -0.7883 },
+  { n: 'Langon', lat: 44.5531, lon: -0.2494, major: 1 },
+  { n: 'Bazas', lat: 44.4317, lon: -0.2128 },
+  { n: 'La Réole', lat: 44.5833, lon: -0.0333 },
+  { n: 'Sainte-Foy-la-Grande', lat: 44.8378, lon: 0.2167, dx: 0, a: 'middle', dy: -14 },
 ];
 const km = t => {
   const r = Math.PI / 180, dLat = (t.lat - HOME.lat) * r, dLon = (t.lon - HOME.lon) * r;
   const a = Math.sin(dLat / 2) ** 2 + Math.cos(HOME.lat * r) * Math.cos(t.lat * r) * Math.sin(dLon / 2) ** 2;
   return Math.max(5, Math.round(6371 * 2 * Math.asin(Math.sqrt(a)) * 1.25));
 };
-TOWNS.forEach(t => { t.km = km(t); t.z = t.km < 20 ? 'near' : t.km <= 40 ? 'mid' : 'far'; });
+TOWNS.forEach(t => { t.km = km(t); t.z = t.km < 15 ? 'near' : t.km <= 50 ? 'mid' : 'far'; });
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -103,19 +106,19 @@ const btn = $('button[type="submit"]', form);
 telIn.addEventListener('input', () => { err.textContent = ''; telIn.removeAttribute('aria-invalid'); });
 function fini(d) {
   const prenom = (d.get('prenom') || '').trim();
-  $('#done-txt').textContent = `${prenom ? 'Merci ' + prenom + ', ' : ''}Peter vous rappelle au ${telIn.value.trim()}. Vous pouvez aussi lui envoyer des photos du toit par SMS au 06 78 44 61 09.`;
+  $('#done-txt').textContent = `${prenom ? 'Merci ' + prenom + ', nous' : 'Nous'} vous rappelons au ${telIn.value.trim()}. Vous pouvez aussi nous envoyer des photos du toit par SMS au 06 78 44 61 09.`;
   $('#ask-form').hidden = true; $('#ask-done').hidden = false;
 }
 form.addEventListener('submit', async e => {
   e.preventDefault();
   if (telIn.value.replace(/\D/g, '').length < 10) {
-    err.textContent = 'Indiquez un numéro à 10 chiffres pour que Peter puisse vous rappeler.';
+    err.textContent = 'Indiquez un numéro à 10 chiffres pour que nous puissions vous rappeler.';
     telIn.setAttribute('aria-invalid', 'true'); telIn.focus(); return;
   }
   const d = new FormData(form);
   const cle = (window.UPR || {}).WEB3FORMS_KEY || '';
   if (!cle || cle.startsWith('REMPLACER')) {
-    err.textContent = 'Le formulaire n’est pas encore actif. Appelez Peter au 06 78 44 61 09.'; return;
+    err.textContent = 'Le formulaire n’est pas encore actif. Appelez-nous au 06 78 44 61 09.'; return;
   }
   const envoi = new FormData();
   envoi.append('access_key', cle);
@@ -138,15 +141,15 @@ form.addEventListener('submit', async e => {
     fini(d);
   } catch (_) {
     btn.disabled = false; btn.textContent = 'Être rappelé';
-    err.textContent = 'L’envoi n’a pas abouti. Appelez Peter directement au 06 78 44 61 09.';
+    err.textContent = 'L’envoi n’a pas abouti. Appelez-nous directement au 06 78 44 61 09.';
   }
 });
 
 /* ---------- Carte ---------- */
 (function map() {
   const svg = $('#map'), tip = $('#map-tip'), NS = 'http://www.w3.org/2000/svg';
-  const lon0 = -0.345, lat0 = 44.765, kx = Math.cos(44.6 * Math.PI / 180), s = 2050;
-  const P = (lat, lon) => [20 + (lon - lon0) * kx * s, 20 + (lat0 - lat) * s];
+  const lon0 = -1.17, lat0 = 45.31, kx = Math.cos(44.85 * Math.PI / 180), s = 585;
+  const P = (lat, lon) => [160 + (lon - lon0) * kx * s, 110 + (lat0 - lat) * s];
   const el = (n, a, p = svg) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; };
   const [hx, hy] = P(HOME.lat, HOME.lon);
   const pxKm = s / 111;
@@ -155,7 +158,7 @@ form.addEventListener('submit', async e => {
   const hitR = petit ? 36 : 22;
   // Les noms y sont deux fois plus gros (CSS) : leurs décalages doublent aussi, sinon ils mordent sur les points
   const k2 = petit ? 2 : 1;
-  [10, 20].forEach(d => {
+  [25, 50].forEach(d => {
     el('circle', { cx: hx, cy: hy, r: d * pxKm, class: 'ring' });
     el('text', { x: hx + 4, y: hy - d * pxKm - 5, 'font-size': 11, 'font-family': 'system-ui' }).textContent = `${d} km à vol d’oiseau`;
   });
@@ -171,7 +174,7 @@ form.addEventListener('submit', async e => {
       g.classList.add('is-on');
       const k = svg.getBoundingClientRect().width / 800;
       tip.style.left = x * k + 'px'; tip.style.top = y * k + 'px';
-      tip.innerHTML = `<b>${t.n}</b><span>≈ ${t.km} km de Loubens</span>`;
+      tip.innerHTML = `<b>${t.n}</b><span>≈ ${t.km} km de Bordeaux</span>`;
       tip.hidden = false;
     };
     g.addEventListener('pointerenter', show);
@@ -181,7 +184,7 @@ form.addEventListener('submit', async e => {
   const h = el('g', { class: 'home' });
   el('circle', { cx: hx, cy: hy, r: 9, class: 'pulse' }, h);
   el('circle', { cx: hx, cy: hy, r: 6, fill: '#B5481F', stroke: '#fff', 'stroke-width': 2.5 }, h);
-  el('text', { x: hx + 12 * k2, y: hy - 6 * k2 }, h).textContent = 'Loubens';
+  el('text', { x: hx + 12 * k2, y: hy - 6 * k2 }, h).textContent = 'Bordeaux';
   svg.addEventListener('pointerleave', () => { tip.hidden = true; $$('.town.is-on', svg).forEach(n => n.classList.remove('is-on')); });
 })();
 
