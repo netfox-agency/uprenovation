@@ -5,10 +5,26 @@
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .lp .reveal.in { opacity: 1; transform: none; }
 
-/* Nav : le numéro en clair à côté du bouton */
-.nav-tel { font-size: var(--t7); font-weight: 600; color: var(--ink); padding: 12px 6px; font-variant-numeric: tabular-nums; }
-.nav.on-photo .nav-tel { color: #fff; }
-@media (max-width: 734px) { .nav-tel { display: none; } }
+/* Le numéro, mis en avant partout : pastille tuile avec icône téléphone */
+.ic-tel { display: inline-block; flex: none; width: 1em; height: 1em; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.btn-call { gap: 10px; background: var(--blue); color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+.btn-call:hover { background: var(--blue-hover); }
+.btn-call .ic-tel { width: 18px; height: 18px; }
+.btn-big { min-height: 58px; padding: 0 30px; font-size: 1.1875rem; }
+.btn-big .ic-tel { width: 20px; height: 20px; }
+.nav-call { position: relative; display: inline-flex; align-items: center; gap: 7px; min-height: 32px; padding: 0 14px; border-radius: 980px; background: var(--blue); color: #fff; font-size: var(--t6); font-weight: 600; font-variant-numeric: tabular-nums; }
+.nav-call::after { content: ""; position: absolute; inset: -6px -2px; }
+.nav-call .ic-tel { width: 14px; height: 14px; }
+.nav-call:hover { background: var(--blue-hover); }
+.card-call { display: flex; align-items: center; gap: 14px; margin: 14px 0 6px; padding: 14px 16px; border-radius: 14px; background: rgba(181, 72, 31, .08); color: var(--blue-hover); font-size: 1.375rem; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; transition: background-color .2s; }
+.card-call:hover { background: rgba(181, 72, 31, .13); }
+.card-call .ic-tel { width: 22px; height: 22px; }
+.card-call small { display: block; font-size: var(--t7); font-weight: 500; letter-spacing: 0; color: var(--ink-2); }
+.prix-cta { margin-top: 8px; }
+@media (max-width: 734px) {
+  .nav .nav-cta { display: none; }
+  .btn-big { width: 100%; }
+}
 
 /* Ouverture : cadre photo à gauche du formulaire */
 .lp-hero { position: relative; }
@@ -82,6 +98,7 @@
 /* Bloc devis complet : même bloc ardoise que l'accueil */
 .lp .ask-card .form-state b { color: var(--ink); }
 .callbar.show { transform: none; }
+.lp .callbar { grid-template-columns: 1.7fr 1fr; }
 
 /* Ses chantiers : mêmes vignettes que le chantier de l'accueil */
 .lp-galerie { margin: 0 auto; padding: 0 var(--pad); width: min(100%, calc(1240px + var(--pad) * 2)); display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
